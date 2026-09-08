@@ -1,0 +1,308 @@
+\ProvidesFile{db_citation_style.bbx}
+
+\RequireBibliographyStyle{authoryear}
+
+
+\DeclareSortingTemplate{typenyt}{
+  \sort{
+    \field{entrytype}
+  }
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+\ExecuteBibliographyOptions{sorting=typenyt}
+
+\DeclareBibliographyCategory{Books_or_Collections}
+\DeclareBibliographyCategory{Articles_in_Collections_or_Proceedings}
+\DeclareBibliographyCategory{Articles_in_Journals_or_Newspapers}
+\DeclareBibliographyCategory{Websites}
+\DeclareBibliographyCategory{Motion_pictures}
+\DeclareBibliographyCategory{Maps}
+\DeclareBibliographyCategory{Academic_Publications}
+\DeclareBibliographyCategory{Presentations_or_Conference_Proceedings}
+\DeclareBibliographyCategory{Audio_and_Video_Recordings_in_Radio_TV_or_Web}
+\DeclareBibliographyCategory{Gray_Literature_or_Reports}
+\DeclareBibliographyCategory{Personal_Communication_Interviews_or_Own_sources}
+
+\DeclareBibliographyDriver{dbbook}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printfield{edition}%
+  \adddot\space
+  \printlist{location}%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbcollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printtext{In}
+  \addcolon\space
+  \printnames{editor}%
+  \space
+  \printtext{(editor)}\addcolon\space
+  \printfield{booktitle}%
+  \adddot\space
+  \printfield{edition}%
+  \adddot\space
+  \printlist{location}%
+  \addcolon\space
+  \printfield{pages}%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbarticle}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printtext{In}\addcolon\space
+  \printfield{journaltitle}%
+  \space
+  \printfield{volume}%
+  \space
+  \mkbibparens{\printfield{number}}%
+  \addcolon\space
+  \printfield{pages}%
+  \adddot\space
+  \printfield{doi}%
+  \finentry% 
+}
+
+\DeclareBibliographyDriver{dbweb}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printtext{Online}\addcolon\space
+  \printfield{url}%
+  \space
+  \mkbibparens{%
+    \printtext{visited on}
+    \space
+    \mkdayzeros{\thefield{urlday}}.%
+    \mkmonthzeros{\thefield{urlmonth}}.%
+    \thefield{urlyear}%
+  }%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbmovie}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printfield{usera}%
+  \printfield{length}%
+  \space 
+  \printtext{minutes}\adddot\space
+  \printtext{Online}\addcolon\space
+  \printfield{url}%
+  \space
+  \mkbibparens{%
+    \printtext{visited on}
+    \space
+    \mkdayzeros{\thefield{urlday}}.%
+    \mkmonthzeros{\thefield{urlmonth}}.%
+    \thefield{urlyear}%
+  }%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbseries}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{userb}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printfield{usera}%
+  \printfield{length}%
+  \space 
+  \printtext{minutes}\adddot\space
+  \printtext{Online}\addcolon\space
+  \printfield{url}%
+  \space
+  \mkbibparens{%
+    \printtext{visited on}
+    \space
+    \mkdayzeros{\thefield{urlday}}.%
+    \mkmonthzeros{\thefield{urlmonth}}.%
+    \thefield{urlyear}%
+  }%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbmap}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printfield{scale}%
+  \adddot\space
+  \printfield{sheet}%
+  \adddot\space
+  \printlist{location}%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbuniversity}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{%
+    \mkdayzeros{\thefield{day}}.%
+    \mkmonthzeros{\thefield{month}}.%
+    \thefield{year}%
+  }%
+  \addcolon\space
+  \printfield{title}%
+  \space
+  \mkbibparens{\printfield{type}}%
+  \adddot\space
+  \printfield{school}%
+  \adddot\space
+  \printfield{address}%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dblecture}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{%
+    \mkdayzeros{\thefield{day}}.%
+    \mkmonthzeros{\thefield{month}}.%
+    \thefield{year}%
+  }%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printtext{At}\addcolon\space
+  \printfield{usera}%
+  \adddot\space
+  \printfield{userb}%
+  \adddot\space
+  \printlist{location}%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbaudiovisual}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printtext{In}\addcolon\space
+  \printfield{series}%
+  \adddot\space
+  \printfield{usera}%
+  \space
+  \printtext{minutes}\adddot\space
+  \printtext{Online}\addcolon\space
+  \printfield{url}%
+  \space
+  \mkbibparens{%
+    \printtext{visited on}
+    \space
+    \mkdayzeros{\thefield{urlday}}.%
+    \mkmonthzeros{\thefield{urlmonth}}.%
+    \thefield{urlyear}%
+  }%
+  \usebibmacro{finentry}% 
+}
+
+\DeclareBibliographyDriver{dbgrey}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{year}}%
+  \addcolon\space
+  \printfield{title}%
+  \adddot\space
+  \printfield{usera}%
+  \adddot\space
+  \printtext{Online}\addcolon\space
+  \printfield{url}%
+  \space
+  \mkbibparens{%
+    \printtext{visited on}
+    \space
+    \mkdayzeros{\thefield{urlday}}.%
+    \mkmonthzeros{\thefield{urlmonth}}.%
+    \thefield{urlyear}%
+  }%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{dbpersonal}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \space
+  \mkbibparens{\printfield{userb}}%
+  \addcolon\space
+  \printfield{title}%
+  \space
+  \mkbibparens{\printfield{usera}}%
+  \adddot\space
+    \mkdayzeros{\thefield{day}}.%
+    \mkmonthzeros{\thefield{month}}.%
+    \thefield{year}
+  \usebibmacro{finentry}% 
+}

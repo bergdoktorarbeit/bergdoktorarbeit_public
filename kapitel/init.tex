@@ -1,0 +1,91 @@
+% Packages
+    % Adapt to german language
+        %\usepackage{ucs}
+        \usepackage[utf8]{inputenc}
+        \usepackage[german]{isodate}
+        %S\usepackage[english]{babel}
+    % Formalities (margins, Text font)
+        \usepackage[a4paper,
+            bindingoffset=0.5cm,
+            left=2.5cm,
+            right=2.5cm, 
+            top=2.5cm,
+            bottom=2.2cm,
+            footskip=1cm
+            ]{geometry}
+        \usepackage[T1]{fontenc}
+        \usepackage{tgpagella} % The font type. More here: https://www.overleaf.com/learn/latex/Font_typefaces
+    % Use pictures
+        \usepackage{graphicx}
+        \usepackage{placeins} % stop floating!
+    % colors (tables)
+        \usepackage[table,xcdraw]{xcolor}
+    % HEader and Footer
+        %\usepackage[automark]{scrpage2} % its not working!
+        % \pagestyle{scrheadings}
+        % \clearscrheadfoot
+        % \ifoot[]{\author}
+        % \ofoot[]{\pagemark} 
+    % Figures
+        \usepackage{subfigure}
+        \usepackage{wrapfig}
+        \usepackage{capt-of} % floating captions
+        \usepackage{caption} % More options for captions
+    % tables
+        \usepackage{wrapfig}
+        \usepackage{lipsum}
+        \usepackage{booktabs}
+        \usepackage{tabularx} % use a tabularx or a tabular* environment to set the overall width
+    % Fonts and Emojis
+        \usepackage{twemojis} % Slows down the performance of the compiler!
+        \usepackage{enumitem} % Specifying bullet point type
+        \usepackage{pifont} % Specifying bullet point type
+        \usepackage{utfsym}
+    % Math stuff
+        \usepackage{amsmath}
+    % Cite
+        %\usepackage{cite}
+        %\usepackage{natbib}
+        %\renewcommand{\cite}[1]{\citealp{#1}} % standart citation
+        %\renewcommand{\citet}[1]{(\citealp{#1})} % same as \cite but with brackets
+        %\usepackage[
+            %backend=biber
+            %,style=numeric
+            %,citestyle=apa
+            %,sorting=nyt
+            %]{biblatex}
+        %\usepackage{textcomp}
+        \usepackage[
+            backend=biber,
+            style=db_citation_style, % loads my .bbx (bibliography style) and my .cbx (In line citation) files
+            %style=authoryear, % Standard style 
+            datamodel=db_citation_model,
+            sorting=typenyt
+            %sorting=nyt % Name–Year–Title. Author first, then chronological order, then title.
+        ]{biblatex}
+        %\ExecuteBibliographyOptions{urldate=long} % THe only one that is working...
+        %\DefineBibliographyExtras{USenglish} % USenglish localization with d-m-y format for dates
+        %\DeclareDatamodelFields[type=field,datatype=date]{urldate}
+        %\ExecuteBibliographyOptions{alldates=dmy}
+        %\ExecuteBibliographyOptions{date=dmY}
+        %\renewcommand{\cite}[1]{\citealp{#1}} % standart citation
+        %\renewcommand{\citet}[1]{(\citealp{#1})} % same as \cite but with brackets
+    % Miscellaneous
+        \usepackage{comment} 
+ % Links
+        \usepackage{url}
+        \usepackage[ % have this package load at the end because it changes some settings of other packages.
+            colorlinks=false, % Only with this false do the borders appear
+            linkbordercolor={0.839 0.839 0.839}, % greyish {white} % RGB Codes between 0 and 1: https://rgbcolorpicker.com/0-1
+            citebordercolor={0.71 1 0.784}, % whitish {green}
+            urlbordercolor={0.737 0.784 1}, % whitisch {blue}
+            %linkcolor=black, 
+            %citecolor=green, 
+            %urlcolor=magenta
+            ]{hyperref} % Add [hidelinks] to hide the red colored frames around hyperlinks
+         % Use this documentation for help: https://www.namsu.de/Extra/pakete/Hyperref.html
+
+
+
+
+% Include this in every doc: \include{init.tex}        

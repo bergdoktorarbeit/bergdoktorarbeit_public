@@ -1,0 +1,26 @@
+\ProvidesFile{db_citation_model.dbx}
+
+\DeclareDatamodelEntrytypes{
+  dbbook,
+  dbcollection,
+  dbarticle,
+  dbweb,
+  dbmovie,
+  dblecture,
+  dbaudiovisual
+}
+
+\DeclareDatamodelFields[type=field, datatype=integer]{
+  length
+}
+\DeclareDatamodelEntryfields{
+  length
+}
+
+
+\DeclareDatamodelFields[type=field, datatype=literal]{
+  lectureseries
+}
+\DeclareDatamodelEntryfields{
+  lectureseries
+}
